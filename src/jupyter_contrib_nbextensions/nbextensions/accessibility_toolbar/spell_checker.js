@@ -77,7 +77,9 @@ define([
       spc_menuitem1.click(function() {
         spc_flag = !spc_flag;
       });
-      var offText = $("<p>", { style: "display:inline" }).text("\xa0\xa0ON");
+      var offText = $("<p>", { style: "display:inline" }).text(
+        "{% trans %}\xa0\xa0ON{% endtrans %}"
+      );
       spc_menuitem1.append(spc_switch);
       spc_menuitem1.append(offText);
       dropMenu.append(spc_menuitem1);
@@ -95,7 +97,7 @@ define([
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{% trans %}Modal title{% endtrans %}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -104,8 +106,8 @@ define([
                     ...
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{% endtrans %}Close{% trans %}</button>
+                    <button type="button" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
                 </div></div></div>`;
       spc_menuitem2.append(m2_template);
       dropMenu.append(spc_menuitem2);

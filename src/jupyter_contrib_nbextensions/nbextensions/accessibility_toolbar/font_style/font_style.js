@@ -61,7 +61,7 @@ define([
         .attr("href", "#")
         .addClass("font-select-box")
         .attr("id", "color-picker")
-        .text("Font color")
+        .text("{% trans %}Font color{% endtrans %}")
         .attr("data-toggle", "dropdown")
         .attr("aria-haspopup", "true")
         .attr("aria-label", "font color");
@@ -77,7 +77,7 @@ define([
         .attr("href", "#")
         .addClass("font-select-box")
         .attr("id", "color-picker-background")
-        .text("Background color")
+        .text("{% trans %}Background color{% endtrans %}")
         .attr("data-toggle", "dropdown")
         .attr("aria-haspopup", "true")
         .attr("aria-label", "text background color")
@@ -96,7 +96,7 @@ define([
       var fs_menuitem3 = $("<li/>")
         .attr("id", "f_name")
         .addClass("font-select-box")
-        .text("Font style")
+        .text("{% trans %}Font style{% endtrans %}")
         .attr("title", "select a font style");
 
       var fs_font_name = fc_obj.font_name();
@@ -108,7 +108,7 @@ define([
       var fs_menuitem4 = $("<li/>")
         .attr("id", "f_size")
         .addClass("font-select-box")
-        .text("Font size")
+        .text("{% trans %}Font size{% endtrans %}")
         .attr("title", "select a font size");
 
       var fs_font_size = fc_obj.font_size();
@@ -123,8 +123,8 @@ define([
         .text("Line height");
       var zoom_div = `
                 <div class="zoom btn-group" id="line_height_buttons" style="float:right">
-                    <button class="btn icon-button" id="reduce_line_height" title="Reduce line height"><i class="fa fa-minus"></i></button>
-                    <button class="btn icon-button" id="increase_line_height" title="Increase line height"><i class="fa fa-plus"></i></button>
+                    <button class="btn icon-button" id="reduce_line_height" title="{% trans %}Reduce line height{% endtrans %}"><i class="fa fa-minus"></i></button>
+                    <button class="btn icon-button" id="increase_line_height" title="{% trans %}Increase line height{% endtrans %}"><i class="fa fa-plus"></i></button>
                 </div>`;
       fs_menuitem6.append(zoom_div);
       dropMenu.append(fs_menuitem6);
@@ -136,8 +136,8 @@ define([
         .text("Letter Spacing");
       var zoom_div = `
                 <div class="zoom btn-group" id="letter_space_buttons" style="float:right">
-                    <button class="btn icon-button" id="reduce_letter_space" title="Reduce letter spacing"><i class="fa fa-minus"></i></button>
-                    <button class="btn icon-button" id="increase_letter_space" title="Increase letter spacing"><i class="fa fa-plus"></i></button>
+                    <button class="btn icon-button" id="reduce_letter_space" title="{% trans %}Reduce letter spacing{% endtrans %}"><i class="fa fa-minus"></i></button>
+                    <button class="btn icon-button" id="increase_letter_space" title="{% trans %}Increase letter spacing{% endtrans %}"><i class="fa fa-plus"></i></button>
                 </div>
             </div>`;
       fs_menuitem7.append(zoom_div);
@@ -157,7 +157,7 @@ define([
 
       var fs_menuitem9 = $("<li/>")
         .addClass("switch text-center")
-        .text("OFF\xa0\xa0");
+        .text("{% trans %}OFF\xa0\xa0{% endtrans %}");
       var fs_switch = $("<input/>", {
         type: "checkbox",
         id: "fs_switch",
@@ -169,7 +169,9 @@ define([
         "data-on": " ",
         "data-off": " "
       });
-      var offText = $("<p>", { style: "display:inline" }).text("\xa0\xa0ON");
+      var offText = $("<p>", { style: "display:inline" }).text(
+        "{% trans %}\xa0\xa0ON{% endtrans %}"
+      );
       this.disable_options();
 
       $(document).ready(function() {

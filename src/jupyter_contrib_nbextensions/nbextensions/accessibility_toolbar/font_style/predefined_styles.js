@@ -18,10 +18,12 @@ define(["base/js/namespace", "jquery", "base/js/utils"], function(
     var fs_menuitem1 = $("<li/>")
       .addClass("menu_focus_highlight dropdown dropdown-submenu")
       .attr("role", "none")
-      .attr("title", "select a predefined style")
+      .attr("title", "{% trans %}select a predefined style{% endtrans %}")
       .attr("aria-label", "select a predefined style")
       .attr("id", "predefined_styles");
-    var fs_predefined_styles = $("<a/>").text("Predefined styles");
+    var fs_predefined_styles = $("<a/>").text(
+      "{% trans %}Predefined styles{% endtrans %}"
+    );
 
     var style_options = $("<ul/>")
       .addClass("dropdown-menu dropdown-menu-style")
@@ -55,7 +57,7 @@ define(["base/js/namespace", "jquery", "base/js/utils"], function(
     var sub_option1 = $("<li/>");
     var new_style_button = $("<a/>")
       .attr("id", "new_style_button")
-      .text("Add new style...")
+      .text("{% trans %}Add new style...{% endtrans %}")
       .attr("href", "#")
       .attr("data-toggle", "modal")
       .attr("data-target", "#new_style")
@@ -74,17 +76,17 @@ define(["base/js/namespace", "jquery", "base/js/utils"], function(
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="exampleModalLabel">Create a new predefined style</h4>
+                    <h4 class="modal-title" id="exampleModalLabel">{% trans %}Create a new predefined style{% endtrans %}</h4>
                 </div>
                 <div class="modal-body">
                     <form method="post" id="new_style_form">
-                        <input id="style_name" type="text" class="form-control input-sm" placeholder="New style name"/>
+                        <input id="style_name" type="text" class="form-control input-sm" placeholder="{% trans %}New style name{% endtrans %}"/>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button id="save-button" type="submit" class="btn btn-default btn-sm btn-primary" 
-                        data-dismiss="modal">Save current format settings</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans %}Cancel{% endtrans %}</button>
+                    <button id="save-button" type="submit" class="btn btn-default btn-sm btn-primary"
+                        data-dismiss="modal">{% trans %}Save current format settings{% endtrans %}</button>
                 </div>
                 </div>
                 </div>`;
@@ -131,7 +133,7 @@ define(["base/js/namespace", "jquery", "base/js/utils"], function(
     var ps_obj = this;
     var sub_option2 = $("<li/>");
     var edit_style = $("<a/>")
-      .text("Delete a style...")
+      .text("{% trans %}Delete a style...{% endtrans %}")
       .attr("id", "delete_style_button")
       .attr("href", "#")
       .attr("data-toggle", "modal")
@@ -147,7 +149,7 @@ define(["base/js/namespace", "jquery", "base/js/utils"], function(
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="exampleModalLabel">Select a predefined style</h4>
+                    <h4 class="modal-title" id="exampleModalLabel">{% trans %}Select a predefined style{% endtrans %}</h4>
                 </div>
                 <div id='modal_body' class="modal-body" style="text-align:center">
                     <form method="post" id="delete_style_form">
@@ -156,9 +158,9 @@ define(["base/js/namespace", "jquery", "base/js/utils"], function(
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button id="delete-button" type="submit" class="btn btn-default btn-sm btn-primary" 
-                        data-dismiss="modal">Delete selected style</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans %}Cancel{% endtrans %}</button>
+                    <button id="delete-button" type="submit" class="btn btn-default btn-sm btn-primary"
+                        data-dismiss="modal">{% trans %}Delete selected style{% endtrans %}</button>
                 </div>
                 </div>
                 </div>`;
@@ -210,7 +212,7 @@ define(["base/js/namespace", "jquery", "base/js/utils"], function(
       var style_option = $("<li/>");
       var style = $("<a/>")
         .addClass("dropdown-item")
-        .text(value)
+        .text("{% trans %}" + value + "{% endtrans %}")
         .attr("href", "#")
         .attr("role", "menuitem");
       if (first_val) {
