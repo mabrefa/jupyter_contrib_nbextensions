@@ -14,7 +14,7 @@ steps:
 - script: |
     git clone https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests.git
     cd accessibility_toolbar_tests
-    docker-compose up
+    docker-compose up -d
     npm run test
     docker-compose down
   displayName: 'Run a multi-line script'
