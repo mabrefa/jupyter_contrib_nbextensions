@@ -1,7 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
 - master
@@ -11,10 +7,20 @@ pool:
 
 steps:
 
+# Starter pipeline
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Microsoft Azure Sponsorship 2(6e42ddaa-52b4-405c-b4a7-2c343927ec41)'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Combine configuration'
+    outputDockerComposeFile: '$(Build.StagingDirectory)/docker-compose.yml'
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 - script: |
     git clone https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests.git
     cd accessibility_toolbar_tests
-    docker-compose up -d
     npm run test
-    docker-compose down
   displayName: 'Run a multi-line script'
