@@ -10,9 +10,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 - script: |
-    ls
+    git clone https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests.git
+    cd accessibility_toolbar_tests
+    docker-compose up
+    npm run test
+    docker-compose down
   displayName: 'Run a multi-line script'
