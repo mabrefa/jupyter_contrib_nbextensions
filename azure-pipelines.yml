@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -10,10 +11,15 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    git clone https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests
+    cd accessibility_toolbar_tests
   displayName: 'Run a multi-line script'
+
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Microsoft Azure Sponsorship 2(1)(6e42ddaa-52b4-405c-b4a7-2c343927ec41)'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run services'
