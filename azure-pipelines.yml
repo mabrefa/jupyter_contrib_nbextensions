@@ -15,6 +15,7 @@ steps:
 - script: |
     git clone https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests
     cd accessibility_toolbar_tests
+    ls
   displayName: 'Run a multi-line script'
 
 - task: DockerCompose@0
